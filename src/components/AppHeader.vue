@@ -1,10 +1,7 @@
 <script>
 export default {
-    data() {
-        return {
-            name: 'AppHeader',
-        }
-    }
+    name: 'AppHeader',
+
 }
 </script>
 
