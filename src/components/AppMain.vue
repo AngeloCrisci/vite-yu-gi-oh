@@ -4,12 +4,6 @@ import CardItem from './CardItem.vue';
 export default {
     components: { CardItem },
     name: 'AppMain',
-    props: {
-        cardCount: {
-            type: Number,
-            required: true
-        }
-    },
     data() {
         return {
             cards: [],
@@ -35,7 +29,7 @@ export default {
     <section id="jumbotron">
         <div class="container">
             <div class="text-center my-4 text-bg-dark">
-                <p>Total Cards: {{ cards.length }}</p>
+                <p>Cards Count: {{ cards.length }}</p>
             </div>
             <div class="row">
                 <CardItem v-for="card in cards" :key="card.id" :card="card" />
