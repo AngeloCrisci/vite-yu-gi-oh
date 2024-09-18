@@ -34,8 +34,8 @@ export default {
 <template>
     <section id="jumbotron">
         <div class="container">
-            <div>
-                <span> {{ cardCount }} </span>
+            <div class="text-center my-4 text-bg-dark">
+                <p>Total Cards: {{ cards.length }}</p>
             </div>
             <div class="row">
                 <CardItem v-for="card in cards" :key="card.id" :card="card" />
