@@ -1,16 +1,37 @@
 <script>
+import axios from 'axios'
 export default {
     name: 'SelectCardArchetype',
+    data() {
+        return {
+            archetypesList: [],
+            filteredArchetype: '',
+        }
+    },
+    methods: {
+        searchArchetype() {
+            axios
+                .get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+                .then((response) => {
+                    this.archetypesList = response.data;
+                })
+        },
+        getArchetype() {
+            this.$emit('filtered-archetype', this.filteredArchetype);
+        }
+    },
+    mounted() {
+        this.searchArchetype();
+    }
 
 }
 </script>
 
 <template>
-    <select class="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+    <select @change="getArchetype" v-model="filteredArchetype" class="form-select" aria-label="Default select example">
+        <option value="">Seleziona il tuo archetipo</option>
+        <option v-for="archetype in archetypesList" :key="archetype.archetype_name" :value="archetype.archetype_name">
+            {{ archetype.archetype_name }} </option>
     </select>
 
 </template>
