@@ -1,8 +1,12 @@
 <script>
 import axios from 'axios';
 import CardItem from './CardItem.vue';
+import SelectCardArchetype from './SelectCardArchetype.vue';
 export default {
-    components: { CardItem },
+    components: {
+        CardItem,
+        SelectCardArchetype,
+    },
     name: 'AppMain',
     data() {
         return {
@@ -26,6 +30,7 @@ export default {
 </script>
 
 <template>
+    <SelectCardArchetype />
     <section id="jumbotron">
         <div class="container">
             <div class="text-center my-4 text-bg-dark">
